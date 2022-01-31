@@ -3,15 +3,12 @@ function createTaskHtml(name, description, assignedTo, dueDate, status){
     <li class="card">
         <div class="card-body">
             <h5 class="card-title">${name}</h5>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseTask1" aria-expanded="false" aria-controls="collapseTask1">
-                Details
-            </button>
-            <div class="collapse" id="collapseTask1">
+            <div>
                 <ul class="list-group" id="tasksList">           
                     <li class="list-group-item">
                         <div class="d-flex w-100 mt-2 justify-content-between align-items-center">
                             
-                            <span class="badge badge-success">${status}</span>
+                            <span>${status}</span>
                         </div>
                         <div class="d-flex w-100 mb-3 justify-content-between">
                             <small>Assigned To: ${assignedTo}</small>
