@@ -15,30 +15,25 @@
   <body>
     <div class="background">
 
-    
-
-    <div class="container">
-        <span id="timeDate"></span>
-        <div class="row">
-            <div class="col text-center">
-                <h2>Tasks List</h2><hr/>
-                
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addtaskModal">Add Task</button><hr/>
+        <div class="container">
+            <span id="timeDate"></span>
+            <div class="row">
+                <div class="col text-center">
+                    <h2>Tasks List</h2><hr/>
+                    
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addtaskModal">Add Task</button><hr/>
+                </div>
+            </div> 
+            <div class="taskListContainer">
+                <ul class="list-group" id="taskList"></ul>
             </div>
-        </div> 
-        <div class="taskListContainer">
-            <ul class="list-group" id="taskList"></ul>
+        
+        
         </div>
-    
-     
-
-    </div>
     </div>
 
     
-
-
 
     <!-- Modal -->
     <div class="modal fade" id="addtaskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -48,7 +43,7 @@
             <!-- Modal Header -->
             <div class="modal-header">
             <h5 class="modal-title" id="addtaskModalLabel">Add Task Below:</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" id="closeButton" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
@@ -104,11 +99,18 @@
                     <div class="form-group">
                         <label for="newTaskStatusInput">Status: </label>                          
                             <select class="form-control" id="newTaskStatusInput">
-                                <option selected>To Do</option>
+                                <option selected>Select Status..</option>
+                                <option>To Do</option>
                                 <option>In Progress</option>
                                 <option>Review</option>
                                 <option>Done</option>
                             </select>
+                        <div class="valid-feedback">
+                            Looks Good!
+                        </div> 
+                        <div class="invalid-feedback">
+                            Please select a status.
+                        </div>
                     </div>    
                     <!-- Modal Footer -->
                     <div class="modal-footer">

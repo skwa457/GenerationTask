@@ -11,6 +11,43 @@ let year = showTimeDate.getFullYear();
 let displayDate = `Date: ${day} / ${month} / ${year}`;
 timeDate.innerHTML = displayDate; 
 
+//Disables previous dates
+if (day < 10) {
+  day = '0' + day;
+}
+
+if (month < 10) {
+  month = '0' + month;
+} 
+let today = year + '-' + month + '-' + day;
+document.getElementById("newTaskDateInput").setAttribute("min", today)
+
+//Clears errors and inputs on close button
+function clearOnClose(){
+  newTaskNameInput.value = "";
+  newTaskDescriptionInput.value = "";
+  newTaskAssignedInput.value = "";
+  newTaskDateInput.value = "";
+  newTaskStatusInput.value = "Select Status..";
+
+  newTaskNameInput.classList.remove("is-valid");
+  newTaskDescriptionInput.classList.remove("is-valid");
+  newTaskAssignedInput.classList.remove("is-valid");
+  newTaskDateInput.classList.remove("is-valid");
+  newTaskStatusInput.classList.remove("is-valid");
+  
+  newTaskNameInput.classList.remove("is-invalid");
+  newTaskDescriptionInput.classList.remove("is-invalid");
+  newTaskAssignedInput.classList.remove("is-invalid");
+  newTaskDateInput.classList.remove("is-invalid");
+  newTaskStatusInput.classList.remove("is-invalid");
+};
+
+let closeTaskForm = document.querySelector('#closeButton')
+closeTaskForm.addEventListener('click', () => {
+  clearOnClose();
+});
+
 let addTaskForm = document.querySelector('#addTaskForm')
 //Function for checking if the information is valid
 function validFormFieldInput(data) {
@@ -75,7 +112,7 @@ function validFormFieldInput(data) {
   }
 
   //Check if status is not empty
-  if(newTaskStatusInput.value){
+  if(newTaskStatusInput.value !== 'Select Status..'){
     newTaskStatusInput.classList.add("is-valid");
     newTaskStatusInput.classList.remove("is-invalid");
   } else {
@@ -85,11 +122,11 @@ function validFormFieldInput(data) {
   }
 
   data.preventDefault();
-  console.log("name:  " + newTaskNameInput.value);
-  console.log("description:  " + newTaskDescriptionInput.value);
-  console.log("assigned:  " + newTaskAssignedInput.value);
-  console.log("date:  " + newTaskDateInput.value);
-  console.log("status:  " + newTaskStatusInput.value);
+  // console.log("name:  " + newTaskNameInput.value);
+  // console.log("description:  " + newTaskDescriptionInput.value);
+  // console.log("assigned:  " + newTaskAssignedInput.value);
+  // console.log("date:  " + newTaskDateInput.value);
+  // console.log("status:  " + newTaskStatusInput.value);
 
   if (errorSum > 0){
     errorSum = 0
